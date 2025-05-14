@@ -1,12 +1,15 @@
-import BRTKButton from "@/components/common/BRTKButton";
-import BRTKInput from "@/components/common/BRTKInput";
-import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import type { AuthFormProps } from "data/types";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { authFormSchema } from "../../../../data/schemas/index";
-import { twMerge } from "tailwind-merge";
+// components
+import { Form } from "@/components/ui/form";
+import BRTKButton from "@/components/common/BRTKButton";
+import BRTKInput from "@/components/common/BRTKInput";
+// data
+import { authFormSchema } from "@/data/schemas";
+import type { AuthFormProps } from "@/data/types";
+// utils
+import { cn } from "@/lib/utils";
 
 const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
   const form = useForm<z.infer<typeof authFormSchema>>({
@@ -22,7 +25,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         autoComplete="off"
-        className={twMerge(`${className}`, "w-full space-y-8")}
+        className={cn(`${className}`, "w-full space-y-8")}
       >
         <BRTKInput
           name="email"

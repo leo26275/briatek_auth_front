@@ -1,5 +1,5 @@
 import type { FieldValues } from "react-hook-form";
-
+// components
 import {
   FormControl,
   FormField,
@@ -8,8 +8,8 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-
-import type { BRTKInputProps } from "data/types";
+// data
+import type { BRTKInputProps } from "@/data/types";
 
 const BRTKInput = <T extends FieldValues>({
   control,

@@ -3,8 +3,7 @@ import { SunMedium } from "lucide-react";
 // components
 import AuthForm from "@/features/auth/components/AuthForm";
 // schemas
-import type { authFormSchema } from "data/schemas";
-// images
+import type { authFormSchema } from "@/data/schemas";
 
 const LoginPage = () => {
   const onSubmit = (values: z.infer<typeof authFormSchema>) => {
