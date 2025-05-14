@@ -17,7 +17,7 @@ const BRTKButton: React.FC<BRTKButtonProps> = ({
   return (
     <Button
       className={cn(
-        `${className}`,
+        `${className ?? ""}`,
         "text-white bg-primary hover:bg-primary/90 focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center"
       )}
       disabled={disabled}

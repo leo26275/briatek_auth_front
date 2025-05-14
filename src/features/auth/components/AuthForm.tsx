@@ -25,7 +25,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         autoComplete="off"
-        className={cn(`${className}`, "w-full space-y-8")}
+        className={cn(`${className ?? ""}`, "w-full space-y-8")}
       >
         <BRTKInput
           name="email"
