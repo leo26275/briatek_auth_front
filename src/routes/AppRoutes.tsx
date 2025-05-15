@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router';
 import LoginPage from '../pages/LoginPage';
 
-const Routes = [
+const PublicRoutes = [
     { path: '*', element: <Navigate to="/login" replace /> },
     {
         path: '/',
@@ -9,4 +9,4 @@ const Routes = [
     },
 ];
 
-export { Routes };
+export { PublicRoutes };

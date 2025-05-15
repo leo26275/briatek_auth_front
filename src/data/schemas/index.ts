@@ -7,7 +7,7 @@ export const authFormSchema = z.object({
             message: 'El correo electrónico es requerido.',
         })
         .email({
-            message: 'Correo electronico inválido.',
+            message: 'El correo electrónico inválido.',
         }),
     password: z.string().nonempty({
         message: 'La contraseña es requerida.',

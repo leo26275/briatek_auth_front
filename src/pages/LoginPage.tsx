@@ -1,13 +1,46 @@
 import { z } from 'zod';
 import { SunMedium } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 // components
 import AuthForm from '@/features/auth/components/AuthForm';
 // schemas
 import type { authFormSchema } from '@/data/schemas';
+// hook
+import useAxios from '@/hooks/useAxios.hook';
+// models
+import type { AuthResponseModel } from '@/features/auth/model/AuthResponse.model';
+// utils
+import { SecureStorage } from '@/utils/SecureStorage';
 
 const LoginPage = () => {
-    const onSubmit = (values: z.infer<typeof authFormSchema>) => {
-        console.log(values);
+    const navigate = useNavigate();
+    const [, fetchLogin] = useAxios<object>();
+
+    const onSubmit = async (values: z.infer<typeof authFormSchema>) => {
+        const response = await fetchLogin({
+            method: 'POST',
+            path: '/auth/login',
+            data: {
+                email: values.email,
+                password: values.password,
+            },
+        });
+
+        if (!response.isSuccess) {
+            toast.error('Credenciales incorrectas.');
+            return;
+        }
+
+        if (!response.data) {
+            toast.error('Ocurrió un error, por favor vuelve a intentarlo.');
+            return;
+        }
+
+        const responseData = response.data as AuthResponseModel;
+        SecureStorage.setItem({ key: 'token', value: responseData.token });
+
+        navigate('/');
     };
 
     const updateTheme = () => {
