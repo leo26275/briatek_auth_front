@@ -1,5 +1,5 @@
 import type { OptionRequest } from './OptionRequest.useaxios';
-import type { StateResponse } from './StateS.useaxios';
+import type { StateResponse } from './State.useaxios';
 
 export interface ResponseApi<M extends object> {
     code: number;

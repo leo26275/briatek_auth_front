@@ -6,10 +6,10 @@ import type {
     ReturnDefaultData,
     ReturnMethod,
 } from './useaxios/Response.useaxios';
-import type { StateResponse } from './useaxios/StateS.useaxios';
+import type { StateResponse } from './useaxios/State.useaxios';
 import type { OptionRequest } from './useaxios/OptionRequest.useaxios';
 // reducer
-import axiosReducer from '@/reducers/AxiosReducer.reducer';
+import axiosReducer from '@/reducers/axiosReducer.reducerr';
 // utils
 import { API_URL } from '@/utils/constants.utils';
 

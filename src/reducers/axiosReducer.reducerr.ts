@@ -1,5 +1,5 @@
-import type { ActionReducer } from '@/hooks/useaxios/action.useaxios';
-import type { StateResponse } from '@/hooks/useaxios/StateS.useaxios';
+import type { ActionReducer } from '@/hooks/useaxios/Action.useaxios';
+import type { StateResponse } from '@/hooks/useaxios/State.useaxios';
 
 const axiosReducer = <M extends object>(
     state: StateResponse<M>,
