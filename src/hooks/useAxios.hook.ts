@@ -9,7 +9,7 @@ import type {
 import type { StateResponse } from './useaxios/State.useaxios';
 import type { OptionRequest } from './useaxios/OptionRequest.useaxios';
 // reducer
-import axiosReducer from '@/reducers/axiosReducer.reducerr';
+import axiosReducer from '@/reducers/axiosReducer.reducer';
 // utils
 import { API_URL } from '@/utils/constants.utils';
 
