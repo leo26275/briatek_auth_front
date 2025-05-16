@@ -40,6 +40,8 @@
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-custom-green: var(--custom-green);
+    --color-custom-green-100: var(--custom-green-100);
+    --color-custom-green-200: var(--custom-green-200);
 }
 
 :root {
@@ -76,6 +78,8 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
     --custom-green: #a3e635;
+    --custom-green-100: #a3e63533;
+    --custom-green-200: #82c34133;
 }
 
 .dark {
@@ -110,7 +114,6 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
-    --custom-green: #a3e635;
 }
 
 @layer base {

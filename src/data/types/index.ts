@@ -3,11 +3,37 @@ import type { z } from 'zod';
 
 import { authFormSchema } from '@/data/schemas';
 
+type HTMLInputTypeAttribute =
+    | 'button'
+    | 'checkbox'
+    | 'color'
+    | 'date'
+    | 'datetime-local'
+    | 'email'
+    | 'file'
+    | 'hidden'
+    | 'image'
+    | 'month'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'range'
+    | 'reset'
+    | 'search'
+    | 'submit'
+    | 'tel'
+    | 'text'
+    | 'time'
+    | 'url'
+    | 'week'
+    | (string & {});
+
 export type BRTKInputBaseProps<T extends FieldValues> = {
     control: Control<T>;
     name: Path<T>;
     label: string;
     extra?: string;
+    type?: HTMLInputTypeAttribute;
 };
 
 export type BRTKInputProps<T extends FieldValues> = BRTKInputBaseProps<T> & {

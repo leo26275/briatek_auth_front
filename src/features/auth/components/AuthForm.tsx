@@ -40,6 +40,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
                     label="Contraseña"
                     control={form.control}
                     isLoading={false}
+                    type="password"
                 />
 
                 <BRTKButton type="submit" label="Iniciar Sesión" className="w-full" />
