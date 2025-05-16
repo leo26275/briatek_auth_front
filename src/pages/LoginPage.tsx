@@ -15,7 +15,7 @@ import { SecureStorage } from '@/utils/SecureStorage';
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const [, fetchLogin] = useAxios<object>();
+    const [state, fetchLogin] = useAxios<object>();
 
     const onSubmit = async (values: z.infer<typeof authFormSchema>) => {
         const response = await fetchLogin({
@@ -26,6 +26,11 @@ const LoginPage = () => {
                 password: values.password,
             },
         });
+
+        if (response.statusCode == 500) {
+            toast.error('Ocurrió un error, por favor vuelve a intentarlo.');
+            return;
+        }
 
         if (!response.isSuccess) {
             toast.error('Credenciales incorrectas.');
@@ -78,7 +83,10 @@ const LoginPage = () => {
                                 </h1>
 
                                 {/* form */}
-                                <AuthForm onSubmit={onSubmit} />
+                                <AuthForm
+                                    onSubmit={onSubmit}
+                                    isLoading={state.isLoading}
+                                />
                             </div>
                         </div>
 

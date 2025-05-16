@@ -11,7 +11,7 @@ import type { AuthFormProps } from '@/data/types';
 // utils
 import { cn } from '@/lib/utils';
 
-const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className, isLoading }) => {
     const form = useForm<z.infer<typeof authFormSchema>>({
         resolver: zodResolver(authFormSchema),
         defaultValues: {
@@ -43,7 +43,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, className }) => {
                     type="password"
                 />
 
-                <BRTKButton type="submit" label="Iniciar Sesión" className="w-full" />
+                <BRTKButton
+                    type="submit"
+                    label="Iniciar Sesión"
+                    className="w-full"
+                    loading={isLoading}
+                />
             </form>
         </Form>
     );

@@ -8,7 +8,7 @@ export interface ResponseApi<M extends object> {
 }
 
 export interface ReturnDefaultData<M extends object> {
-    statusCode?: number;
+    statusCode: number;
     message?: string;
     isSuccess: boolean;
     data: M | null;

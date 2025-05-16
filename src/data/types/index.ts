@@ -1,5 +1,6 @@
 import type { Control, FieldValues, Path } from 'react-hook-form';
 import type { z } from 'zod';
+import type { IconName } from 'lucide-react/dynamic';
 
 import { authFormSchema } from '@/data/schemas';
 
@@ -48,9 +49,13 @@ export type BRTKButtonProps = {
     label?: string;
     className?: string;
     onClick?: () => void;
+    loading?: boolean;
+    iconPosition?: 'left' | 'right';
+    icon?: IconName;
 };
 
 export type AuthFormProps = {
     onSubmit: (values: z.infer<typeof authFormSchema>) => void;
     className?: string;
+    isLoading: boolean;
 };

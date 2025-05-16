@@ -113,6 +113,7 @@ const useAxios = <M extends object>(): ReturnMethod<M> => {
             return {
                 data: null,
                 isSuccess: false,
+                statusCode: 500,
             };
         }
     };
