@@ -59,3 +59,7 @@ export type AuthFormProps = {
     className?: string;
     isLoading: boolean;
 };
+
+export type BRTKThemeProps = {
+    className?: string;
+};

@@ -1,24 +1,27 @@
 import { z } from 'zod';
-import { Moon, SunMedium } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 // components
 import AuthForm from '@/features/auth/components/AuthForm';
 import BRTKLogo from '@/components/common/BRTKLogo';
+import BRTKTheme from '@/components/common/BRTKTheme';
 // schemas
 import type { authFormSchema } from '@/data/schemas';
 // hook
 import useAxios from '@/hooks/useAxios.hook';
-import useTheme from '@/hooks/useTheme.hook';
+import useUser from '@/hooks/useUser';
 // models
 import type { AuthResponseModel } from '@/features/auth/model/AuthResponse.model';
 // utils
 import { SecureStorage } from '@/utils/SecureStorage';
+import { decodeToken } from '@/utils/jwt.utils';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const [state, fetchLogin] = useAxios<object>();
-    const { theme, toggleTheme } = useTheme();
+    const {
+        userMethods: { onLogin },
+    } = useUser();
 
     const onSubmit = async (values: z.infer<typeof authFormSchema>) => {
         const response = await fetchLogin({
@@ -52,18 +55,15 @@ const LoginPage = () => {
 
         const responseData = response.data as AuthResponseModel;
         SecureStorage.setItem({ key: 'token', value: responseData.token });
+        const authData = decodeToken(responseData.token);
+        if (authData) onLogin(authData);
 
         navigate('/');
     };
 
     return (
         <section className="bg-white dark:bg-primary min-h-screen flex flex-col items-center justify-center">
-            <div
-                className="absolute top-5 right-5 text-custom-green cursor-pointer"
-                onClick={toggleTheme}
-            >
-                {theme == 'dark' ? <SunMedium /> : <Moon />}
-            </div>
+            <BRTKTheme className="absolute top-5" />
 
             <div className="w-full flex max-w-7xl p-5 md:p-0">
                 <div className="w-full flex items-center justify-center">
