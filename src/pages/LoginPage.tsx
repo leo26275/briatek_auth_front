@@ -35,6 +35,11 @@ const LoginPage = () => {
             return;
         }
 
+        if (response.statusCode == 401) {
+            toast.error('Usuario o contraseña incorrectos.');
+            return;
+        }
+
         if (!response.isSuccess) {
             toast.error('Credenciales incorrectas.');
             return;

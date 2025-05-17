@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 // interfaces
 import type {
     ResponseApi,
@@ -51,7 +51,7 @@ const useAxios = <M extends object>(): ReturnMethod<M> => {
                         headers: Object.fromEntries(headers),
                         data: request.data ?? {},
                     });
-                    console.log('responseAxios', responseAxios);
+
                     response = responseAxios.data;
                 } else {
                     const queries = request.queries
@@ -83,7 +83,7 @@ const useAxios = <M extends object>(): ReturnMethod<M> => {
                     data: response.body,
                 };
             } else {
-                console.log('[useAxios] [ERROR]', response);
+                console.error('[useAxios] [ERROR]', response);
 
                 dispatch({
                     type: 'ERROR',
@@ -101,7 +101,7 @@ const useAxios = <M extends object>(): ReturnMethod<M> => {
                 };
             }
         } catch (error) {
-            console.log('[useAxios] [ERROR]', error);
+            console.error('[useAxios] [ERROR]', error);
 
             dispatch({
                 type: 'ERROR',
@@ -109,6 +109,15 @@ const useAxios = <M extends object>(): ReturnMethod<M> => {
                     message: 'Algo salió mal, vuelve a intentar más tarde.',
                 },
             });
+
+            if (error instanceof AxiosError) {
+                return {
+                    data: null,
+                    isSuccess: false,
+                    statusCode: error.status ?? 500,
+                    message: error.message,
+                };
+            }
 
             return {
                 data: null,
