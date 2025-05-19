@@ -1,7 +1,9 @@
 import type { Control, FieldValues, Path } from 'react-hook-form';
 import type { z } from 'zod';
 import type { IconName } from 'lucide-react/dynamic';
-
+// interfaces
+import type { IModule } from '@/features/auth/interfaces/IModule.interface';
+// schemas
 import { authFormSchema } from '@/data/schemas';
 
 type HTMLInputTypeAttribute =
@@ -62,4 +64,13 @@ export type AuthFormProps = {
 
 export type BRTKThemeProps = {
     className?: string;
+};
+
+export type BRTKHeaderProps = {
+    modules: IModule[];
+};
+
+export type BRTKItemHeaderProps = {
+    item: IModule;
+    onClick?: (url: string) => void;
 };
