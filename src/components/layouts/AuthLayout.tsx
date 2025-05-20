@@ -1,22 +1,32 @@
-// hooks
-import useUser from '@/hooks/useUser';
+import { useMemo } from 'react';
 // components
 import BRTKHeader from '../common/BRTKHeader';
 import BRTKAside from '../common/BRTKAside';
 import BRTKCategoryItem from '../common/BRTKCategoryItem';
+import BRTKPromptInput from '../common/BRTKPromptInput';
+// hooks
+import useUser from '@/hooks/useUser';
+// utils
+import { getGreeting } from '@/lib/utils';
 
 const AuthLayout = () => {
     const {
         userData: { data },
     } = useUser();
 
+    const orderedModules = useMemo(() => {
+        return [...(data?.modules ?? [])].sort((a, b) => a.position - b.position);
+    }, [data?.modules]);
+
+    const userName = data?.user?.name ?? '';
+
     return (
         <>
             {/* header */}
-            <BRTKHeader modules={data?.modules ?? []} />
+            <BRTKHeader />
             <div className="flex flex-1">
                 {/* aside */}
-                <BRTKAside />
+                <BRTKAside modules={orderedModules} />
 
                 {/* container */}
                 <main className="flex flex-col justify-center items-center w-full min-h-screen pt-12 bg-white dark:bg-primary transition-all duration-500 px-4 sm:px-6 md:px-8">
@@ -24,11 +34,16 @@ const AuthLayout = () => {
                         {/* titles */}
                         <div className="text-center space-y-2">
                             <h1 className="text-3xl font-semibold text-primary dark:text-white">
-                                Buenas tardes, {data?.user.name ?? ''}
+                                {getGreeting()}, {userName}
                             </h1>
                             <h1 className="text-xl font-medium text-custom-green">
                                 ¿En qué puedo ayudarte hoy?
                             </h1>
+                        </div>
+
+                        {/* look for */}
+                        <div className="relative w-full max-w-2xl mt-6">
+                            <BRTKPromptInput />
                         </div>
 
                         {/* categories */}

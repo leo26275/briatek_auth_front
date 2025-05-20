@@ -66,11 +66,11 @@ export type BRTKThemeProps = {
     className?: string;
 };
 
-export type BRTKHeaderProps = {
+export type BRTKAsideProps = {
     modules: IModule[];
 };
 
-export type BRTKItemHeaderProps = {
+export type BRTKItemAsideProps = {
     item: IModule;
     onClick?: (url: string) => void;
 };

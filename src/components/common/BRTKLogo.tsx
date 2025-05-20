@@ -5,7 +5,7 @@ const BRTKLogo = () => {
 
     return (
         <div
-            className="text-center text-2xl font-bold text-primary dark:text-white transition-colors duration-300 cursor-pointer"
+            className="text-center text-3xl font-extrabold text-primary dark:text-white transition-colors duration-300 cursor-pointer"
             onClick={onGoToLandingPage}
         >
             Br<span className="text-custom-green">ia</span>tek

@@ -4,7 +4,7 @@ import LoginPage from '../pages/LoginPage';
 const PublicRoutes = [
     { path: '*', element: <Navigate to="/login" replace /> },
     {
-        path: '/',
+        path: '/login',
         element: <LoginPage />,
     },
 ];
