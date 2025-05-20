@@ -1,7 +1,8 @@
 import { DynamicIcon } from 'lucide-react/dynamic';
 // types
 import type { BRTKCategoryItemProps } from '@/data/types';
-import BRTKButton from './BRTKButton';
+// components
+import BRTKButtonIcon from './BRTKButtonIcon';
 
 const BRTKCategoryItem = ({ icon, title, description }: BRTKCategoryItemProps) => {
     return (
@@ -26,7 +27,7 @@ const BRTKCategoryItem = ({ icon, title, description }: BRTKCategoryItemProps) =
             </div>
 
             {/* footer */}
-            <BRTKButton icon="plus" />
+            <BRTKButtonIcon icon="plus" />
         </div>
     );
 };

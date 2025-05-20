@@ -82,3 +82,9 @@ export type BRTKCategoryItemProps = {
     description: string;
     onClick?: () => void;
 };
+
+export type BRTKButtonIconProps = {
+    className?: string;
+    onClick?: () => void;
+    icon: IconName;
+};
