@@ -23,7 +23,7 @@ const BRTKButton: React.FC<BRTKButtonProps> = ({
             className={cn(
                 `${className ?? ''}`,
                 `${loading ? 'pointer-events-none' : ''}`,
-                'text-white bg-primary hover:bg-primary/80 dark:text-custom-green dark:bg-custom-green-100 dark:hover:bg-custom-green-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center',
+                'text-white bg-primary hover:bg-primary/80 dark:text-custom-green dark:bg-custom-green-100 dark:hover:bg-custom-green-200 focus:ring-4 focus:outline-none font-medium text-lg px-5 py-2.5 text-center',
             )}
             disabled={disabled}
             type={type}

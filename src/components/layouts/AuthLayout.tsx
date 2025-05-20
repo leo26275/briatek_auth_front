@@ -2,6 +2,8 @@
 import useUser from '@/hooks/useUser';
 // components
 import BRTKHeader from '../common/BRTKHeader';
+import BRTKAside from '../common/BRTKAside';
+import BRTKCategoryItem from '../common/BRTKCategoryItem';
 
 const AuthLayout = () => {
     const {
@@ -12,11 +14,52 @@ const AuthLayout = () => {
         <>
             {/* header */}
             <BRTKHeader modules={data?.modules ?? []} />
-            {/* aside */}
-            {/* container */}
-            <main className="flex flex-col justify-start items-center w-full min-h-screen pt-12 bg-white dark:bg-primary transition-all duration-500 px-4 sm:px-6 md:px-8">
-                content
-            </main>
+            <div className="flex flex-1">
+                {/* aside */}
+                <BRTKAside />
+
+                {/* container */}
+                <main className="flex flex-col justify-center items-center w-full min-h-screen pt-12 bg-white dark:bg-primary transition-all duration-500 px-4 sm:px-6 md:px-8">
+                    <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+                        {/* titles */}
+                        <div className="text-center space-y-2">
+                            <h1 className="text-3xl font-semibold text-primary dark:text-white">
+                                Buenas tardes, {data?.user.name ?? ''}
+                            </h1>
+                            <h1 className="text-xl font-medium text-custom-green">
+                                ¿En qué puedo ayudarte hoy?
+                            </h1>
+                        </div>
+
+                        {/* categories */}
+                        <div className="mt-10 w-full px-4 flex flex-wrap justify-center gap-6">
+                            <BRTKCategoryItem
+                                icon="credit-card"
+                                title="Auxiliar de limpieza"
+                                description="Solicita perfiles con experiencia reciente en limpieza institucional y disponibilidad inmediata."
+                            />
+
+                            <BRTKCategoryItem
+                                icon="refresh-ccw"
+                                title="Asistente administrativo"
+                                description="Busca candidatos con experiencia en recepción, agenda ejecutiva y trato al cliente en entornos corporativos."
+                            />
+
+                            <BRTKCategoryItem
+                                icon="graduation-cap"
+                                title="Docente de primaria"
+                                description="Encuentra docentes con experiencia comprobada en grados iniciales y alta vocación educativa."
+                            />
+
+                            <BRTKCategoryItem
+                                icon="monitor"
+                                title="Diseñador gráfico"
+                                description="Explora perfiles creativos con dominio de Adobe y experiencia en diseño para marcas reconocidas."
+                            />
+                        </div>
+                    </div>
+                </main>
+            </div>
         </>
     );
 };

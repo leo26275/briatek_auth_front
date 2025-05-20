@@ -74,3 +74,11 @@ export type BRTKItemHeaderProps = {
     item: IModule;
     onClick?: (url: string) => void;
 };
+
+export type BRTKCategoryItemProps = {
+    className?: string;
+    icon: IconName;
+    title: string;
+    description: string;
+    onClick?: () => void;
+};
