@@ -20,6 +20,10 @@ const AuthLayout = () => {
 
     const userName = data?.user?.name ?? '';
 
+    const onSubmit = async (prompt: string) => {
+        console.log('prompt', prompt);
+    };
+
     return (
         <>
             {/* header */}
@@ -29,8 +33,8 @@ const AuthLayout = () => {
                 <BRTKAside modules={orderedModules} />
 
                 {/* container */}
-                <main className="flex flex-col justify-center items-center w-full min-h-screen pt-12 bg-white dark:bg-primary transition-all duration-500 px-4 sm:px-6 md:px-8">
-                    <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+                <main className="flex flex-col justify-center items-center w-full min-h-screen pt-12 bg-white dark:bg-primary transition-all duration-500">
+                    <div className="w-full max-w-6xl mx-auto flex flex-col items-center p-4 sm:p-6 md:p-8">
                         {/* titles */}
                         <div className="text-center space-y-2">
                             <h1 className="text-3xl font-semibold text-primary dark:text-white">
@@ -43,7 +47,7 @@ const AuthLayout = () => {
 
                         {/* look for */}
                         <div className="relative w-full max-w-2xl mt-6">
-                            <BRTKPromptInput />
+                            <BRTKPromptInput onSubmit={onSubmit} />
                         </div>
 
                         {/* categories */}

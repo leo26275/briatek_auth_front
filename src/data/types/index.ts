@@ -71,6 +71,7 @@ export type BRTKAsideProps = {
 };
 
 export type BRTKItemAsideProps = {
+    className?: string;
     item: IModule;
     onClick?: (url: string) => void;
 };
@@ -87,4 +88,9 @@ export type BRTKButtonIconProps = {
     className?: string;
     onClick?: () => void;
     icon: IconName;
+};
+
+export type PromptFormProps = {
+    onSubmit: (prompt: string) => void;
+    isLoading?: boolean;
 };

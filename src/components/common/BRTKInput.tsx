@@ -41,7 +41,7 @@ const BRTKInput = <T extends FieldValues>({
                             <Input
                                 className={cn(
                                     `${type == 'password' ? 'pr-10' : ''}`,
-                                    'bg-white text-primary border rounded-lg h-[40px] focus:border-custom-green dark:bg-secondary dark:text-white dark:placeholder-gray-400 dark:focus:ring-blue-900',
+                                    'bg-white text-primary border rounded-lg h-[40px] focus:border-custom-green dark:bg-secondary dark:text-white dark:placeholder-gray-400 focus-visible:ring-blue-900',
                                 )}
                                 disabled={isLoading}
                                 placeholder={placeholder}

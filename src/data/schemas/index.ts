@@ -13,3 +13,7 @@ export const authFormSchema = z.object({
         message: 'La contraseña es requerida.',
     }),
 });
+
+export const promptFormSchema = z.object({
+    prompt: z.string(),
+});
