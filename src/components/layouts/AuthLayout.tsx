@@ -28,6 +28,7 @@ const AuthLayout = () => {
         <>
             {/* header */}
             <BRTKHeader />
+
             <div className="flex flex-1">
                 {/* aside */}
                 <BRTKAside modules={orderedModules} />
